@@ -12,307 +12,272 @@
       }
       
       body {
-        perspective: 1000px;
-        transform-style: preserve-3d;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       }
 
-      /* Gentle Breathing Animation for Hero */
-      .gentle-breathe {
-        animation: gentleBreathe 4s ease-in-out infinite;
-        transform-style: preserve-3d;
-      }
-      
-      @keyframes gentleBreathe {
-        0%, 100% { 
-          transform: translateY(0) scale(1); 
-        }
-        50% { 
-          transform: translateY(-8px) scale(1.02); 
-        }
-      }
-
-      /* Subtle Glow Pulse for Text */
-      .text-glow-pulse {
-        animation: glowPulse 3s ease-in-out infinite;
-      }
-
-      @keyframes glowPulse {
-        0%, 100% {
-          text-shadow: 
-            0 0 10px rgba(99, 102, 241, 0.3),
-            0 0 20px rgba(99, 102, 241, 0.2),
-            0 0 30px rgba(99, 102, 241, 0.1);
-        }
-        50% {
-          text-shadow: 
-            0 0 15px rgba(99, 102, 241, 0.5),
-            0 0 25px rgba(99, 102, 241, 0.3),
-            0 0 35px rgba(99, 102, 241, 0.2);
-        }
-      }
-
-      /* 3D Floating Animation for other elements */
-      .floating-3d {
-        animation: float3D 6s ease-in-out infinite;
-        transform-style: preserve-3d;
-      }
-      
-      @keyframes float3D {
-        0%, 100% { 
-          transform: translateY(0) rotateX(0deg) rotateY(0deg); 
-        }
-        25% { 
-          transform: translateY(-15px) rotateX(2deg) rotateY(1deg); 
-        }
-        50% { 
-          transform: translateY(-10px) rotateX(-1deg) rotateY(-2deg); 
-        }
-        75% { 
-          transform: translateY(-20px) rotateX(1deg) rotateY(1deg); 
-        }
-      }
-
-      /* Enhanced Glass Card with 3D depth */
-      .glass-card-3d {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-        backdrop-filter: blur(20px);
+      /* Clean 3D Card System */
+      .card-3d {
+        background: linear-gradient(145deg, #1e293b, #0f172a);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        border-radius: 16px;
         box-shadow: 
-          0 20px 40px rgba(0, 0, 0, 0.3),
-          0 0 0 1px rgba(255, 255, 255, 0.1),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        border-radius: 1.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        transform-style: preserve-3d;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
       }
 
-      .glass-card-3d:hover {
-        transform: translateY(-10px) rotateX(5deg) rotateY(5deg) scale(1.02);
+      .card-3d::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), transparent);
+        border-radius: 16px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .card-3d:hover {
+        transform: translateY(-8px);
         box-shadow: 
-          0 30px 60px rgba(0, 0, 0, 0.4),
-          0 0 0 1px rgba(255, 255, 255, 0.2),
-          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+          0 20px 25px -5px rgba(0, 0, 0, 0.2),
+          0 10px 10px -5px rgba(0, 0, 0, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
       }
 
-      /* Hero Card - Special styling for readability */
+      .card-3d:hover::before {
+        opacity: 1;
+      }
+
+      /* Hero Section Styling */
       .hero-card {
-        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
-        backdrop-filter: blur(25px);
+        background: linear-gradient(145deg, #1e293b, #0f172a);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 24px;
         box-shadow: 
-          0 25px 50px rgba(0, 0, 0, 0.4),
-          0 0 0 1px rgba(255, 255, 255, 0.1),
-          inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        border-radius: 2rem;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transform-style: preserve-3d;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          0 25px 50px -12px rgba(0, 0, 0, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(16px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       .hero-card:hover {
-        transform: translateY(-5px) scale(1.01);
+        transform: translateY(-4px);
         box-shadow: 
-          0 35px 70px rgba(0, 0, 0, 0.5),
-          0 0 0 1px rgba(255, 255, 255, 0.15),
+          0 35px 60px -12px rgba(0, 0, 0, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+
+      /* Professional Button */
+      .btn-professional {
+        background: linear-gradient(145deg, #3b82f6, #2563eb);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        border-radius: 12px;
+        box-shadow: 
+          0 4px 14px 0 rgba(59, 130, 246, 0.25),
           inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
       }
 
-      /* 3D Text Effects */
-      .text-3d {
-        text-shadow: 
-          0 1px 0 rgba(255, 255, 255, 0.1),
-          0 2px 0 rgba(0, 0, 0, 0.3),
-          0 3px 0 rgba(0, 0, 0, 0.2),
-          0 4px 0 rgba(0, 0, 0, 0.1),
-          0 5px 10px rgba(0, 0, 0, 0.5);
-        transform-style: preserve-3d;
+      .btn-professional::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
       }
 
-      .text-3d-glow {
-        text-shadow: 
-          0 0 10px rgba(99, 102, 241, 0.5),
-          0 0 20px rgba(99, 102, 241, 0.3),
-          0 0 30px rgba(99, 102, 241, 0.2),
-          0 1px 0 rgba(255, 255, 255, 0.1),
-          0 2px 0 rgba(0, 0, 0, 0.3);
-      }
-
-      /* 3D Button Effects */
-      .btn-3d {
-        background: linear-gradient(145deg, rgba(59, 130, 246, 0.8), rgba(37, 99, 235, 0.9));
+      .btn-professional:hover {
+        transform: translateY(-2px);
         box-shadow: 
-          0 10px 20px rgba(59, 130, 246, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2),
-          inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-        border-radius: 0.75rem;
-        transform-style: preserve-3d;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+          0 8px 25px 0 rgba(59, 130, 246, 0.35),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
       }
 
-      .btn-3d:hover {
-        transform: translateY(-5px) rotateX(10deg);
-        box-shadow: 
-          0 20px 40px rgba(59, 130, 246, 0.4),
-          inset 0 1px 0 rgba(255, 255, 255, 0.3),
-          inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+      .btn-professional:hover::before {
+        left: 100%;
       }
 
-      .btn-3d:active {
-        transform: translateY(-2px) rotateX(5deg);
-      }
-
-      /* Parallax Background Layers */
-      .parallax-bg {
-        background: 
-          radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-          radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%),
-          linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-        background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-        animation: parallaxMove 20s ease-in-out infinite;
-      }
-
-      @keyframes parallaxMove {
-        0%, 100% { background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%; }
-        50% { background-position: 100% 100%, 0% 0%, 80% 20%, 100% 100%; }
-      }
-
-      /* 3D Section Transitions */
-      .section-3d {
-        transform-style: preserve-3d;
-        transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
-
-      .section-3d:hover {
-        transform: translateZ(20px);
-      }
-
-      /* Skill Cards 3D Grid */
+      /* Skill Cards */
       .skill-card {
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-        backdrop-filter: blur(15px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 1rem;
-        transform-style: preserve-3d;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(145deg, #1e293b, #0f172a);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        border-radius: 16px;
+        box-shadow: 
+          0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .skill-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+        opacity: 0;
+        transition: opacity 0.3s ease;
       }
 
       .skill-card:hover {
-        transform: translateY(-15px) rotateX(10deg) rotateY(5deg) scale(1.05);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        transform: translateY(-6px);
+        box-shadow: 
+          0 20px 25px -5px rgba(0, 0, 0, 0.15),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
       }
 
-      /* Contact Links 3D */
+      .skill-card:hover::after {
+        opacity: 1;
+      }
+
+      /* Contact Links */
       .contact-link {
-        background: linear-gradient(145deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.3));
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(59, 130, 246, 0.3);
-        border-radius: 1rem;
-        transform-style: preserve-3d;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+        background: linear-gradient(145deg, #1e293b, #0f172a);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        border-radius: 16px;
+        box-shadow: 
+          0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(145deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+        opacity: 0;
+        transition: opacity 0.3s ease;
       }
 
       .contact-link:hover {
-        transform: translateY(-8px) rotateX(15deg) scale(1.1);
-        box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
-        background: linear-gradient(145deg, rgba(59, 130, 246, 0.4), rgba(37, 99, 235, 0.5));
+        transform: translateY(-4px);
+        box-shadow: 
+          0 12px 20px -5px rgba(0, 0, 0, 0.15),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        border-color: rgba(59, 130, 246, 0.3);
       }
 
-      /* Floating Particles */
-      .particle {
-        position: absolute;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
-        border-radius: 50%;
-        pointer-events: none;
-        animation: floatParticle 8s linear infinite;
+      .contact-link:hover::before {
+        opacity: 1;
       }
 
-      @keyframes floatParticle {
-        0% {
-          transform: translateY(100vh) translateX(0) rotateZ(0deg);
-          opacity: 0;
-        }
-        10% {
-          opacity: 1;
-        }
-        90% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(-100px) translateX(100px) rotateZ(360deg);
-          opacity: 0;
-        }
+      /* Background Gradients */
+      .bg-gradient-primary {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
       }
 
-      /* Responsive 3D adjustments */
+      .bg-gradient-secondary {
+        background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%);
+      }
+
+      /* Text Enhancements */
+      .text-gradient {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .text-shadow-soft {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Section Spacing */
+      .section-padding {
+        padding: 5rem 1.5rem;
+      }
+
+      /* Responsive Design */
       @media (max-width: 768px) {
-        .glass-card-3d:hover, .hero-card:hover {
-          transform: translateY(-5px) rotateX(2deg) rotateY(2deg) scale(1.01);
+        .section-padding {
+          padding: 3rem 1rem;
         }
         
-        .skill-card:hover {
-          transform: translateY(-8px) rotateX(5deg) rotateY(2deg) scale(1.02);
+        .card-3d:hover,
+        .skill-card:hover,
+        .contact-link:hover {
+          transform: translateY(-4px);
         }
+      }
+
+      /* Smooth Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
       }
     </style>
   </head>
 
-  <body class="bg-gray-900 text-white font-sans leading-relaxed tracking-wide overflow-x-hidden">
-    <!-- Floating Particles -->
-    <div class="particle" style="width: 4px; height: 4px; left: 10%; animation-delay: 0s;"></div>
-    <div class="particle" style="width: 6px; height: 6px; left: 20%; animation-delay: 2s;"></div>
-    <div class="particle" style="width: 3px; height: 3px; left: 30%; animation-delay: 4s;"></div>
-    <div class="particle" style="width: 5px; height: 5px; left: 40%; animation-delay: 6s;"></div>
-    <div class="particle" style="width: 4px; height: 4px; left: 50%; animation-delay: 8s;"></div>
-    <div class="particle" style="width: 7px; height: 7px; left: 60%; animation-delay: 1s;"></div>
-    <div class="particle" style="width: 3px; height: 3px; left: 70%; animation-delay: 3s;"></div>
-    <div class="particle" style="width: 5px; height: 5px; left: 80%; animation-delay: 5s;"></div>
-    <div class="particle" style="width: 4px; height: 4px; left: 90%; animation-delay: 7s;"></div>
-
+  <body class="bg-gray-900 text-white antialiased">
     <!-- Hero Section -->
-    <section class="h-screen flex items-center justify-center parallax-bg text-center px-6 section-3d">
-      <div class="hero-card p-12 gentle-breathe">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 text-3d">
-          Hi, I'm <span class="text-indigo-400 text-glow-pulse">Nirmit</span> 👋
+    <section class="min-h-screen flex items-center justify-center bg-gradient-primary section-padding">
+      <div class="hero-card p-8 md:p-12 max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-shadow-soft">
+          Hi, I'm <span class="text-gradient">Nirmit</span> 👋
         </h1>
-        <h2 class="text-2xl md:text-3xl font-light mb-8 text-3d">
+        <h2 class="text-xl md:text-2xl lg:text-3xl font-light mb-8 text-gray-300 leading-relaxed">
           Crafting what you see 👁️‍🗨️,<br />engineering what you don't 🔧
         </h2>
-        <a href="#about" class="btn-3d px-8 py-4 text-white font-semibold inline-block text-lg">
+        <a href="#about" class="btn-professional px-8 py-4 text-white font-semibold inline-block text-lg">
           Scroll to Explore ↓
         </a>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 px-6 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-950 section-3d">
-      <div class="max-w-4xl mx-auto glass-card-3d p-8">
-        <h2 class="text-4xl font-bold mb-6 text-3d text-center">About Me</h2>
-        <div class="text-gray-300 text-lg leading-relaxed space-y-4">
-          <p>
-            <strong class="text-indigo-400">Full-stack developer in training</strong> | B.Tech IT Engineering @ Gyanmanjari Innovative University
-          </p>
-          <p>
-            For over two years, I've sharpened my craft in the trenches of Java, Python, DSA, DBMS, and modern web development (HTML/CSS/JS)—transforming theory into clean, functional code. But to me, tech isn't just syntax; it's about solving puzzles—whether reverse-engineering game mechanics, decoding social platforms, or prototyping wild ideas.
-          </p>
-          <p>
-            When I'm not deep in algorithms, you'll find me battle-testing skills at hackathons—from Gujarat Government's large-scale challenges to my university's flagship Techmanjari. Every line I write fuels one mission:
-          </p>
-          <p class="text-xl font-bold text-center text-indigo-400 text-3d-glow py-4">
-            Building tomorrow's web—where logic dances with creativity, and every pixel has purpose.
-          </p>
+    <section id="about" class="section-padding bg-gradient-secondary">
+      <div class="max-w-4xl mx-auto">
+        <div class="card-3d p-8 md:p-10">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-gradient">About Me</h2>
+          <div class="text-gray-300 text-lg leading-relaxed space-y-6">
+            <p>
+              <strong class="text-blue-400">Full-stack developer in training</strong> | B.Tech IT Engineering @ Gyanmanjari Innovative University
+            </p>
+            <p>
+              For over two years, I've sharpened my craft in the trenches of Java, Python, DSA, DBMS, and modern web development (HTML/CSS/JS)—transforming theory into clean, functional code. But to me, tech isn't just syntax; it's about solving puzzles—whether reverse-engineering game mechanics, decoding social platforms, or prototyping wild ideas.
+            </p>
+            <p>
+              When I'm not deep in algorithms, you'll find me battle-testing skills at hackathons—from Gujarat Government's large-scale challenges to my university's flagship Techmanjari. Every line I write fuels one mission:
+            </p>
+            <div class="text-xl font-bold text-center py-6">
+              <span class="text-gradient">Building tomorrow's web—where logic dances with creativity, and every pixel has purpose.</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Skills & Tools Section -->
-    <section id="skills" class="py-20 px-6 bg-gradient-to-tr from-gray-900 via-slate-800 to-gray-900 section-3d">
+    <section id="skills" class="section-padding bg-gradient-primary">
       <div class="max-w-6xl mx-auto">
-        <div class="glass-card-3d p-8 mb-12">
-          <h2 class="text-4xl font-bold mb-6 text-3d text-center">Skills & Tools</h2>
-          <div class="text-gray-300 text-lg leading-relaxed space-y-4">
+        <div class="card-3d p-8 md:p-10 mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-gradient">Skills & Tools</h2>
+          <div class="text-gray-300 text-lg leading-relaxed space-y-6">
             <p>
               I thrive on precision and velocity. My approach is simple: work smarter, deliver faster, reinvest time. I optimize tasks to create space for innovation—turning deadlines into launchpads for what's next.
             </p>
@@ -324,22 +289,22 @@
 
         <!-- Skills Grid -->
         <div class="grid md:grid-cols-2 gap-8">
-          <div class="skill-card p-6">
-            <h3 class="text-2xl font-bold mb-4 text-indigo-400 text-3d">⚙️ CORE SKILLS</h3>
-            <div class="space-y-3 text-gray-300">
-              <p><strong>Languages & Tech:</strong> Java, Python, JavaScript, HTML/CSS, SQL</p>
-              <p><strong>Core Concepts:</strong> Data Structures & Algorithms, Database Design (DBMS), OOP, Responsive Design</p>
-              <p><strong>Dev Practices:</strong> Agile Workflow, Debugging, Code Optimization, UI/UX Sensitivity</p>
+          <div class="skill-card p-6 md:p-8">
+            <h3 class="text-2xl font-bold mb-6 text-blue-400">⚙️ CORE SKILLS</h3>
+            <div class="space-y-4 text-gray-300">
+              <p><strong class="text-white">Languages & Tech:</strong> Java, Python, JavaScript, HTML/CSS, SQL</p>
+              <p><strong class="text-white">Core Concepts:</strong> Data Structures & Algorithms, Database Design (DBMS), OOP, Responsive Design</p>
+              <p><strong class="text-white">Dev Practices:</strong> Agile Workflow, Debugging, Code Optimization, UI/UX Sensitivity</p>
             </div>
           </div>
 
-          <div class="skill-card p-6">
-            <h3 class="text-2xl font-bold mb-4 text-purple-400 text-3d">🤖 AI-POWERED WORKFLOW</h3>
-            <div class="space-y-3 text-gray-300">
+          <div class="skill-card p-6 md:p-8">
+            <h3 class="text-2xl font-bold mb-6 text-purple-400">🤖 AI-POWERED WORKFLOW</h3>
+            <div class="space-y-4 text-gray-300">
               <p>GitHub Copilot • ChatGPT</p>
               <p>AI-powered Figma Plugins</p>
               <p>VS Code IntelliCode</p>
-              <p class="text-purple-400 font-semibold italic mt-4">
+              <p class="text-purple-400 font-semibold italic mt-6 text-lg">
                 I don't just use tools—I train them. AI handles the mundane. I handle the magic.
               </p>
             </div>
@@ -349,62 +314,64 @@
     </section>
 
     <!-- Blog Section -->
-    <section id="blog" class="py-20 px-6 bg-gradient-to-bl from-slate-900 via-gray-900 to-black section-3d">
-      <div class="max-w-4xl mx-auto glass-card-3d p-8">
-        <h2 class="text-4xl font-bold mb-4 text-3d text-center">The Digital Canvas Without Borders</h2>
-        <p class="text-gray-400 text-xl mb-8 italic text-center">(Why I Build Where the World Connects)</p>
-        
-        <div class="text-gray-300 text-lg leading-relaxed space-y-6">
-          <p>
-            There's magic in building where everyone already lives: no installs, no gates, just a URL away. My craft lives in the space between the browser and the server—where structure becomes art, and every click is a conversation.
-          </p>
-          <p>
-            I design ecosystems that breathe across devices. No rebuilding for iOS or Android—just one elegant architecture scaling from phone screens to desktops. This isn't just efficiency; it's democratizing access.
-          </p>
-          <p>
-            And the connection? It's electric. Real-time whispers between client and server, APIs dancing behind scenes, databases responding like loyal engines. Here, I'm not just a coder—I'm an architect of immediacy.
-          </p>
-          <p>
-            Walls? I build bridges. Closed gardens frustrate me. I thrive where open standards reign: HTML's skeleton, CSS's soul, JavaScript's pulse. This is the universal language of the internet—and I speak it fluently.
-          </p>
-          <p>
-            The future isn't behind app-store approvals. It's in lightning-fast PWAs, immersive WebGL worlds, and AI-enhanced interfaces loading in a blink. This canvas has no edges. And I'm here to paint it bolder.
-          </p>
-        </div>
-        
-        <div class="text-center mt-12">
-          <h3 class="text-2xl text-blue-400 floating-3d text-3d-glow">
-            The browser is the ultimate blank slate: no rules, no royalties, just pure potential.
-          </h3>
+    <section id="blog" class="section-padding bg-gradient-secondary">
+      <div class="max-w-4xl mx-auto">
+        <div class="card-3d p-8 md:p-10">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center text-gradient">The Digital Canvas Without Borders</h2>
+          <p class="text-gray-400 text-xl mb-8 italic text-center">(Why I Build Where the World Connects)</p>
+          
+          <div class="text-gray-300 text-lg leading-relaxed space-y-6">
+            <p>
+              There's magic in building where everyone already lives: no installs, no gates, just a URL away. My craft lives in the space between the browser and the server—where structure becomes art, and every click is a conversation.
+            </p>
+            <p>
+              I design ecosystems that breathe across devices. No rebuilding for iOS or Android—just one elegant architecture scaling from phone screens to desktops. This isn't just efficiency; it's democratizing access.
+            </p>
+            <p>
+              And the connection? It's electric. Real-time whispers between client and server, APIs dancing behind scenes, databases responding like loyal engines. Here, I'm not just a coder—I'm an architect of immediacy.
+            </p>
+            <p>
+              Walls? I build bridges. Closed gardens frustrate me. I thrive where open standards reign: HTML's skeleton, CSS's soul, JavaScript's pulse. This is the universal language of the internet—and I speak it fluently.
+            </p>
+            <p>
+              The future isn't behind app-store approvals. It's in lightning-fast PWAs, immersive WebGL worlds, and AI-enhanced interfaces loading in a blink. This canvas has no edges. And I'm here to paint it bolder.
+            </p>
+          </div>
+          
+          <div class="text-center mt-12">
+            <h3 class="text-2xl text-gradient font-semibold">
+              The browser is the ultimate blank slate: no rules, no royalties, just pure potential.
+            </h3>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gradient-to-tr from-gray-950 via-slate-900 to-gray-950 section-3d">
-      <div class="max-w-4xl mx-auto text-center px-6">
-        <div class="glass-card-3d p-8 mb-12">
-          <h2 class="text-4xl font-bold mb-4 text-3d">Get in Touch</h2>
-          <p class="text-2xl font-medium mb-8 text-indigo-400">Dave Nirmit</p>
+    <section id="contact" class="section-padding bg-gradient-primary">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="card-3d p-8 md:p-10 mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gradient">Get in Touch</h2>
+          <p class="text-2xl font-medium text-gray-300">Dave Nirmit</p>
         </div>
         
         <div class="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=davenirmit1324@gmail.com" target="_blank"
-             class="contact-link p-6 block text-center">
-            <div class="text-4xl mb-3">📧</div>
-            <div class="text-lg font-semibold">Email Me</div>
+             class="contact-link p-6 block text-center relative">
+            <div class="text-4xl mb-4">📧</div>
+            <div class="text-lg font-semibold relative z-10">Email Me</div>
           </a>
           
           <a href="https://github.com/DaveNirmit" target="_blank"
-             class="contact-link p-6 block text-center">
-            <div class="text-4xl mb-3">💻</div>
-            <div class="text-lg font-semibold">GitHub</div>
+             class="contact-link p-6 block text-center relative">
+            <div class="text-4xl mb-4">💻</div>
+            <div class="text-lg font-semibold relative z-10">GitHub</div>
           </a>
           
           <a href="https://www.linkedin.com/in/dave-nirmit-536711311/" target="_blank"
-             class="contact-link p-6 block text-center">
-            <div class="text-4xl mb-3">💼</div>
-            <div class="text-lg font-semibold">LinkedIn</div>
+             class="contact-link p-6 block text-center relative">
+            <div class="text-4xl mb-4">💼</div>
+            <div class="text-lg font-semibold relative z-10">LinkedIn</div>
           </a>
         </div>
 
@@ -415,70 +382,47 @@
     </section>
 
     <script>
-      // Enhanced ScrollReveal with 3D effects
-      ScrollReveal().reveal('.section-3d', {
-        duration: 1500,
+      // Clean ScrollReveal animations
+      ScrollReveal().reveal('.card-3d', {
+        duration: 800,
         delay: 200,
-        distance: '100px',
+        distance: '30px',
         origin: 'bottom',
-        easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-        reset: false,
-        scale: 0.9,
-        rotate: { x: 10, y: 0, z: 0 }
-      });
-
-      ScrollReveal().reveal('.glass-card-3d, .hero-card', {
-        duration: 1200,
-        delay: 400,
-        distance: '60px',
-        origin: 'bottom',
-        easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-        reset: false,
-        scale: 0.95
+        easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+        reset: false
       });
 
       ScrollReveal().reveal('.skill-card', {
-        duration: 1000,
-        delay: 300,
-        distance: '80px',
+        duration: 600,
+        delay: 100,
+        distance: '30px',
         origin: 'bottom',
-        easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+        easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
         reset: false,
-        interval: 200,
-        scale: 0.9
+        interval: 200
       });
 
       ScrollReveal().reveal('.contact-link', {
-        duration: 800,
-        delay: 200,
-        distance: '50px',
+        duration: 500,
+        delay: 100,
+        distance: '20px',
         origin: 'bottom',
-        easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+        easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
         reset: false,
-        interval: 150,
-        scale: 0.95
+        interval: 150
       });
 
-      // Add mouse parallax effect
-      document.addEventListener('mousemove', (e) => {
-        const mouseX = e.clientX / window.innerWidth;
-        const mouseY = e.clientY / window.innerHeight;
-        
-        const cards = document.querySelectorAll('.glass-card-3d, .skill-card, .hero-card');
-        cards.forEach((card, index) => {
-          const intensity = (index + 1) * 0.5;
-          const rotateX = (mouseY - 0.5) * intensity;
-          const rotateY = (mouseX - 0.5) * intensity;
-          
-          card.style.transform += ` rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-      });
-
-      // Reset transform on mouse leave
-      document.addEventListener('mouseleave', () => {
-        const cards = document.querySelectorAll('.glass-card-3d, .skill-card, .hero-card');
-        cards.forEach(card => {
-          card.style.transform = '';
+      // Smooth scroll behavior
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
         });
       });
     </script>
