@@ -143,6 +143,80 @@
         opacity: 1;
       }
 
+      /* Project Cards */
+      .project-card {
+        background: linear-gradient(145deg, #1e293b, #0f172a);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        border-radius: 16px;
+        box-shadow: 
+          0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 
+          0 20px 25px -5px rgba(0, 0, 0, 0.2),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+
+      .project-card:hover::after {
+        opacity: 1;
+      }
+
+      /* Project Button */
+      .btn-project {
+        background: linear-gradient(145deg, #10b981, #059669);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 10px;
+        box-shadow: 
+          0 4px 12px 0 rgba(16, 185, 129, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-project::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+      }
+
+      .btn-project:hover {
+        transform: translateY(-2px);
+        box-shadow: 
+          0 8px 20px 0 rgba(16, 185, 129, 0.35),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      }
+
+      .btn-project:hover::before {
+        left: 100%;
+      }
+
       /* Contact Links */
       .contact-link {
         background: linear-gradient(145deg, #1e293b, #0f172a);
@@ -214,6 +288,7 @@
         
         .card-3d:hover,
         .skill-card:hover,
+        .project-card:hover,
         .contact-link:hover {
           transform: translateY(-4px);
         }
@@ -313,8 +388,79 @@
       </div>
     </section>
 
+    <!-- My Works & Projects Section -->
+    <section id="projects" class="section-padding bg-gradient-secondary">
+      <div class="max-w-6xl mx-auto">
+        <div class="card-3d p-8 md:p-10 mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-gradient">My Works & Projects</h2>
+          <div class="text-gray-300 text-lg leading-relaxed text-center">
+            <p>
+              Below lives a handpicked gallery of my most impactful builds—academic experiments turned tactical solutions, personal passions polished into functional art. From university labs to midnight inspiration, each project fuses clean code with bold creativity.
+            </p>
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Academic Project -->
+          <div class="project-card p-6 md:p-8">
+            <div class="flex-grow">
+              <h3 class="text-2xl font-bold mb-6 text-green-400">🎓 Academic Project</h3>
+              <div class="text-gray-300 leading-relaxed mb-8">
+                <p>
+                  A focused, functional website created as my inaugural college assignment—built in a two-person team and deployed live.
+                </p>
+              </div>
+            </div>
+            <div class="mt-auto">
+              <a href="https://davenirmit.github.io/WebDevelopmentALA-28-/" target="_blank" 
+                 class="btn-project px-6 py-3 text-white font-semibold inline-block text-center w-full rounded-lg">
+                View Project →
+              </a>
+            </div>
+          </div>
+
+          <!-- Animation Project -->
+          <div class="project-card p-6 md:p-8">
+            <div class="flex-grow">
+              <h3 class="text-2xl font-bold mb-6 text-blue-400">✨ I Learn Animation</h3>
+              <div class="text-gray-300 leading-relaxed mb-8">
+                <p>
+                  I have newly learned about animation in websites using Javascript here is a small demo, do check it out.
+                </p>
+              </div>
+            </div>
+            <div class="mt-auto">
+              <a href="https://davenirmit.github.io/Animation/" target="_blank" 
+                 class="btn-project px-6 py-3 text-white font-semibold inline-block text-center w-full rounded-lg">
+                View Project →
+              </a>
+            </div>
+          </div>
+
+          <!-- Farmers Awareness Hub -->
+          <div class="project-card p-6 md:p-8">
+            <div class="flex-grow">
+              <h3 class="text-2xl font-bold mb-6 text-yellow-400">🌾 Farmers Awareness Hub</h3>
+              <div class="text-gray-300 leading-relaxed mb-8">
+                <p>
+                  To help the basic strength pillar of our Nation the Farmers which will now get help through our website getting all kind of information needed regarding there crop or season or ever the machineries anyone needs for any specific farming will be provided here @Farmer-Awareness-Hub
+                </p>
+              </div>
+            </div>
+            <div class="mt-auto">
+              <a href="https://davenirmit.github.io/Farmer-Awareness-Hub/" target="_blank" 
+                 class="btn-project px-6 py-3 text-white font-semibold inline-block text-center w-full rounded-lg">
+                View Project →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Blog Section -->
-    <section id="blog" class="section-padding bg-gradient-secondary">
+    <section id="blog" class="section-padding bg-gradient-primary">
       <div class="max-w-4xl mx-auto">
         <div class="card-3d p-8 md:p-10">
           <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center text-gradient">The Digital Canvas Without Borders</h2>
@@ -348,7 +494,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-padding bg-gradient-primary">
+    <section id="contact" class="section-padding bg-gradient-secondary">
       <div class="max-w-4xl mx-auto text-center">
         <div class="card-3d p-8 md:p-10 mb-12">
           <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gradient">Get in Touch</h2>
@@ -393,6 +539,16 @@
       });
 
       ScrollReveal().reveal('.skill-card', {
+        duration: 600,
+        delay: 100,
+        distance: '30px',
+        origin: 'bottom',
+        easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+        reset: false,
+        interval: 200
+      });
+
+      ScrollReveal().reveal('.project-card', {
         duration: 600,
         delay: 100,
         distance: '30px',
