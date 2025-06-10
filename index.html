@@ -15,71 +15,41 @@
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       }
 
-      /* Clean 3D Card System */
+      /* Card System */
       .card-3d {
         background: linear-gradient(145deg, #1e293b, #0f172a);
         border: 1px solid rgba(148, 163, 184, 0.1);
         border-radius: 16px;
-        box-shadow: 
-          0 4px 6px -1px rgba(0, 0, 0, 0.1),
-          0 2px 4px -1px rgba(0, 0, 0, 0.06),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-      }
-
-      .card-3d::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), transparent);
-        border-radius: 16px;
-        opacity: 0;
-        transition: opacity 0.3s ease;
       }
 
       .card-3d:hover {
         transform: translateY(-8px);
-        box-shadow: 
-          0 20px 25px -5px rgba(0, 0, 0, 0.2),
-          0 10px 10px -5px rgba(0, 0, 0, 0.1),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
       }
 
-      .card-3d:hover::before {
-        opacity: 1;
-      }
-
-      /* Hero Section Styling */
+      /* Hero Section */
       .hero-card {
         background: linear-gradient(145deg, #1e293b, #0f172a);
         border: 1px solid rgba(148, 163, 184, 0.2);
         border-radius: 24px;
-        box-shadow: 
-          0 25px 50px -12px rgba(0, 0, 0, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(16px);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       .hero-card:hover {
         transform: translateY(-4px);
-        box-shadow: 
-          0 35px 60px -12px rgba(0, 0, 0, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
       }
 
-      /* Professional Button */
+      /* Buttons */
       .btn-professional {
         background: linear-gradient(145deg, #3b82f6, #2563eb);
         border: 1px solid rgba(59, 130, 246, 0.3);
         border-radius: 12px;
-        box-shadow: 
-          0 4px 14px 0 rgba(59, 130, 246, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
@@ -98,12 +68,40 @@
 
       .btn-professional:hover {
         transform: translateY(-2px);
-        box-shadow: 
-          0 8px 25px 0 rgba(59, 130, 246, 0.35),
-          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 25px 0 rgba(59, 130, 246, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
       }
 
       .btn-professional:hover::before {
+        left: 100%;
+      }
+
+      .btn-project {
+        background: linear-gradient(145deg, #10b981, #059669);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 10px;
+        box-shadow: 0 4px 12px 0 rgba(16, 185, 129, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-project::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+      }
+
+      .btn-project:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px 0 rgba(16, 185, 129, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      }
+
+      .btn-project:hover::before {
         left: 100%;
       }
 
@@ -112,9 +110,7 @@
         background: linear-gradient(145deg, #1e293b, #0f172a);
         border: 1px solid rgba(148, 163, 184, 0.1);
         border-radius: 16px;
-        box-shadow: 
-          0 4px 6px -1px rgba(0, 0, 0, 0.1),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
@@ -134,9 +130,7 @@
 
       .skill-card:hover {
         transform: translateY(-6px);
-        box-shadow: 
-          0 20px 25px -5px rgba(0, 0, 0, 0.15),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
       }
 
       .skill-card:hover::after {
@@ -148,9 +142,7 @@
         background: linear-gradient(145deg, #1e293b, #0f172a);
         border: 1px solid rgba(148, 163, 184, 0.1);
         border-radius: 16px;
-        box-shadow: 
-          0 4px 6px -1px rgba(0, 0, 0, 0.1),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
@@ -173,48 +165,11 @@
 
       .project-card:hover {
         transform: translateY(-8px);
-        box-shadow: 
-          0 20px 25px -5px rgba(0, 0, 0, 0.2),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
       }
 
       .project-card:hover::after {
         opacity: 1;
-      }
-
-      /* Project Button */
-      .btn-project {
-        background: linear-gradient(145deg, #10b981, #059669);
-        border: 1px solid rgba(16, 185, 129, 0.3);
-        border-radius: 10px;
-        box-shadow: 
-          0 4px 12px 0 rgba(16, 185, 129, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .btn-project::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.5s;
-      }
-
-      .btn-project:hover {
-        transform: translateY(-2px);
-        box-shadow: 
-          0 8px 20px 0 rgba(16, 185, 129, 0.35),
-          inset 0 1px 0 rgba(255, 255, 255, 0.3);
-      }
-
-      .btn-project:hover::before {
-        left: 100%;
       }
 
       /* Contact Links */
@@ -222,9 +177,7 @@
         background: linear-gradient(145deg, #1e293b, #0f172a);
         border: 1px solid rgba(148, 163, 184, 0.1);
         border-radius: 16px;
-        box-shadow: 
-          0 4px 6px -1px rgba(0, 0, 0, 0.1),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
@@ -244,9 +197,7 @@
 
       .contact-link:hover {
         transform: translateY(-4px);
-        box-shadow: 
-          0 12px 20px -5px rgba(0, 0, 0, 0.15),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
         border-color: rgba(59, 130, 246, 0.3);
       }
 
@@ -292,18 +243,6 @@
         .contact-link:hover {
           transform: translateY(-4px);
         }
-      }
-
-      /* Smooth Animations */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
       }
     </style>
   </head>
@@ -528,7 +467,7 @@
     </section>
 
     <script>
-      // Clean ScrollReveal animations
+      // ScrollReveal animations
       ScrollReveal().reveal('.card-3d', {
         duration: 800,
         delay: 200,
@@ -568,7 +507,7 @@
         interval: 150
       });
 
-      // Smooth scroll behavior
+      // Smooth scroll
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           e.preventDefault();
