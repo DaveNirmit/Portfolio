@@ -44,6 +44,23 @@
         box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
       }
 
+      /* Profile Image */
+      .profile-image {
+        width: 300px;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 20px;
+        border: 3px solid rgba(59, 130, 246, 0.3);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .profile-image:hover {
+        transform: scale(1.05);
+        border-color: rgba(59, 130, 246, 0.5);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+      }
+
       /* Buttons */
       .btn-professional {
         background: linear-gradient(145deg, #3b82f6, #2563eb);
@@ -243,6 +260,17 @@
         .contact-link:hover {
           transform: translateY(-4px);
         }
+
+        .profile-image {
+          width: 250px;
+          height: 320px;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr !important;
+          gap: 2rem !important;
+          text-align: center;
+        }
       }
     </style>
   </head>
@@ -250,16 +278,30 @@
   <body class="bg-gray-900 text-white antialiased">
     <!-- Hero Section -->
     <section class="min-h-screen flex items-center justify-center bg-gradient-primary section-padding">
-      <div class="hero-card p-8 md:p-12 max-w-4xl mx-auto text-center">
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-shadow-soft">
-          Hi, I'm <span class="text-gradient">Nirmit</span> 👋
-        </h1>
-        <h2 class="text-xl md:text-2xl lg:text-3xl font-light mb-8 text-gray-300 leading-relaxed">
-          Crafting what you see 👁️‍🗨️,<br />engineering what you don't 🔧
-        </h2>
-        <a href="#about" class="btn-professional px-8 py-4 text-white font-semibold inline-block text-lg">
-          Scroll to Explore ↓
-        </a>
+      <div class="hero-card p-8 md:p-12 max-w-6xl mx-auto">
+        <div class="hero-grid grid md:grid-cols-2 gap-12 items-center">
+          <!-- Left Side - Photo -->
+          <div class="flex justify-center md:justify-end">
+            <img src="public/IMAGE.jpg" alt="Dave Nirmit" class="profile-image">
+          </div>
+          
+          <!-- Right Side - Name and Details -->
+          <div class="text-center md:text-left">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow-soft">
+              Hi, I'm <span class="text-gradient">Nirmit</span> 👋
+            </h1>
+            <h2 class="text-xl md:text-2xl lg:text-3xl font-light mb-8 text-gray-300 leading-relaxed">
+              Crafting what you see 👁️‍🗨️,<br />engineering what you don't 🔧
+            </h2>
+            <p class="text-lg text-gray-400 mb-8 leading-relaxed">
+              <strong class="text-blue-400">Full-stack developer in training</strong><br>
+              B.Tech IT Engineering @ Gyanmanjari Innovative University
+            </p>
+            <a href="#about" class="btn-professional px-8 py-4 text-white font-semibold inline-block text-lg">
+              Scroll to Explore ↓
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -269,9 +311,6 @@
         <div class="card-3d p-8 md:p-10">
           <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-gradient">About Me</h2>
           <div class="text-gray-300 text-lg leading-relaxed space-y-6">
-            <p>
-              <strong class="text-blue-400">Full-stack developer in training</strong> | B.Tech IT Engineering @ Gyanmanjari Innovative University
-            </p>
             <p>
               For over two years, I've sharpened my craft in the trenches of Java, Python, DSA, DBMS, and modern web development (HTML/CSS/JS)—transforming theory into clean, functional code. But to me, tech isn't just syntax; it's about solving puzzles—whether reverse-engineering game mechanics, decoding social platforms, or prototyping wild ideas.
             </p>
